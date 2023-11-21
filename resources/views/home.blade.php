@@ -28,12 +28,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-            </tr>
+
+            @foreach ($trains as $train)
+                <tr>
+                    <th scope="row">{{ $train->train_code }}</th>
+                    <td>{{ $train->company }}</td>
+                    <td><strong>{{ $train->departure_station }}</strong> - {{ $train->departure_time }}</td>
+                    <td><strong>{{ $train->arrival_station }}</strong> - {{ $train->arrival_time }}</td>
+                </tr>
+            @endforeach
+
         </tbody>
     </table>
 
