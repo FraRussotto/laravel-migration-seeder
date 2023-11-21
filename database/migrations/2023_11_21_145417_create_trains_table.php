@@ -14,12 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('trains', function (Blueprint $table) {
-            $table->id();
+            $table->id()->unique()->autoIncrement();
             $table->string('company', 30);
             $table->string('departure_station', 50);
             $table->string('arrival_station', 50);
             $table->dateTime('departure_time');
             $table->dateTime('arrival_time');
+            $table->string('train_code', 30)->unique();
             $table->tinyInteger('carriage')->unsigned();
             $table->boolean('is_late')->default(false);
             $table->boolean('is_deleted')->default(false);
